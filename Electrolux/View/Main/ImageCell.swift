@@ -6,15 +6,29 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ImageCell: View {
+    
+    //MARK: - PROPERTIES
+    let photo: Photo
+    
+    //MARK: - BODY
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HStack(spacing: 12) {
+            KFImage(URL(string: photo.urlM!))
+                .resizable()
+                .scaledToFill()
+                .clipped()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 150)
+                .cornerRadius(10)
+                .shadow(color: Color.primary.opacity(0.3), radius: 1)
+            
+        } //HStack
+        .animation(.interactiveSpring())
+        
     }
 }
 
-struct ImageCell_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageCell()
-    }
-}

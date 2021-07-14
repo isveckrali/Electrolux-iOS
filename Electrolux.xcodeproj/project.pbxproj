@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,19 @@
 		10478F6C269B23D400F6C2F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F6B269B23D400F6C2F4 /* ContentView.swift */; };
 		10478F6E269B23DC00F6C2F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10478F6D269B23DC00F6C2F4 /* Assets.xcassets */; };
 		10478F71269B23DC00F6C2F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10478F70269B23DC00F6C2F4 /* Preview Assets.xcassets */; };
+		10478F7F269B304400F6C2F4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 10478F7E269B304400F6C2F4 /* Kingfisher */; };
+		10478F83269B30AA00F6C2F4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F82269B30AA00F6C2F4 /* SearchBar.swift */; };
+		10478F85269B321C00F6C2F4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F84269B321C00F6C2F4 /* ImageCell.swift */; };
+		10478F87269B328700F6C2F4 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F86269B328700F6C2F4 /* PhotoViewModel.swift */; };
+		10478F89269B32B600F6C2F4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F88269B32B600F6C2F4 /* PhotoModel.swift */; };
+		10478F8B269B3EDB00F6C2F4 /* FlickrHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F8A269B3EDB00F6C2F4 /* FlickrHelper.swift */; };
+		10478F90269B66AD00F6C2F4 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 10478F8F269B66AD00F6C2F4 /* RxRelay */; };
+		10478F92269B66AD00F6C2F4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 10478F91269B66AD00F6C2F4 /* RxCocoa */; };
+		10478F94269B66AD00F6C2F4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 10478F93269B66AD00F6C2F4 /* RxSwift */; };
+		10478F97269B673900F6C2F4 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F96269B673900F6C2F4 /* URLRequest+Extensions.swift */; };
+		10478F9B269CD54A00F6C2F4 /* ProgressViewIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F9A269CD54A00F6C2F4 /* ProgressViewIndicator.swift */; };
+		10478F9D269D0D3100F6C2F4 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F9C269D0D3100F6C2F4 /* ImageSaver.swift */; };
+		10478F9F269DC89B00F6C2F4 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10478F9E269DC89B00F6C2F4 /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +33,15 @@
 		10478F6D269B23DC00F6C2F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10478F70269B23DC00F6C2F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		10478F72269B23DC00F6C2F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10478F82269B30AA00F6C2F4 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		10478F84269B321C00F6C2F4 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		10478F86269B328700F6C2F4 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		10478F88269B32B600F6C2F4 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		10478F8A269B3EDB00F6C2F4 /* FlickrHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrHelper.swift; sourceTree = "<group>"; };
+		10478F96269B673900F6C2F4 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
+		10478F9A269CD54A00F6C2F4 /* ProgressViewIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewIndicator.swift; sourceTree = "<group>"; };
+		10478F9C269D0D3100F6C2F4 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		10478F9E269DC89B00F6C2F4 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +49,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10478F92269B66AD00F6C2F4 /* RxCocoa in Frameworks */,
+				10478F90269B66AD00F6C2F4 /* RxRelay in Frameworks */,
+				10478F94269B66AD00F6C2F4 /* RxSwift in Frameworks */,
+				10478F7F269B304400F6C2F4 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +78,12 @@
 		10478F68269B23D400F6C2F4 /* Electrolux */ = {
 			isa = PBXGroup;
 			children = (
+				10478F95269B670E00F6C2F4 /* Extensions */,
+				10478F7C269B250200F6C2F4 /* ViewModels */,
+				10478F7A269B24D100F6C2F4 /* View */,
+				10478F79269B24C900F6C2F4 /* Model */,
+				10478F78269B24C100F6C2F4 /* Utils */,
 				10478F69269B23D400F6C2F4 /* ElectroluxApp.swift */,
-				10478F6B269B23D400F6C2F4 /* ContentView.swift */,
 				10478F6D269B23DC00F6C2F4 /* Assets.xcassets */,
 				10478F72269B23DC00F6C2F4 /* Info.plist */,
 				10478F6F269B23DC00F6C2F4 /* Preview Content */,
@@ -67,6 +97,59 @@
 				10478F70269B23DC00F6C2F4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		10478F78269B24C100F6C2F4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				10478F8A269B3EDB00F6C2F4 /* FlickrHelper.swift */,
+				10478F9C269D0D3100F6C2F4 /* ImageSaver.swift */,
+				10478F9E269DC89B00F6C2F4 /* NetworkMonitor.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		10478F79269B24C900F6C2F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10478F88269B32B600F6C2F4 /* PhotoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		10478F7A269B24D100F6C2F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10478F7B269B24F500F6C2F4 /* Main */,
+				10478F82269B30AA00F6C2F4 /* SearchBar.swift */,
+				10478F9A269CD54A00F6C2F4 /* ProgressViewIndicator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10478F7B269B24F500F6C2F4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				10478F6B269B23D400F6C2F4 /* ContentView.swift */,
+				10478F84269B321C00F6C2F4 /* ImageCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		10478F7C269B250200F6C2F4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				10478F86269B328700F6C2F4 /* PhotoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		10478F95269B670E00F6C2F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				10478F96269B673900F6C2F4 /* URLRequest+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +168,12 @@
 			dependencies = (
 			);
 			name = Electrolux;
+			packageProductDependencies = (
+				10478F7E269B304400F6C2F4 /* Kingfisher */,
+				10478F8F269B66AD00F6C2F4 /* RxRelay */,
+				10478F91269B66AD00F6C2F4 /* RxCocoa */,
+				10478F93269B66AD00F6C2F4 /* RxSwift */,
+			);
 			productName = Electrolux;
 			productReference = 10478F66269B23D400F6C2F4 /* Electrolux.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +201,10 @@
 				Base,
 			);
 			mainGroup = 10478F5D269B23D400F6C2F4;
+			packageReferences = (
+				10478F7D269B304400F6C2F4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				10478F8E269B66AD00F6C2F4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 10478F67269B23D400F6C2F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +231,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10478F9F269DC89B00F6C2F4 /* NetworkMonitor.swift in Sources */,
 				10478F6C269B23D400F6C2F4 /* ContentView.swift in Sources */,
+				10478F89269B32B600F6C2F4 /* PhotoModel.swift in Sources */,
+				10478F97269B673900F6C2F4 /* URLRequest+Extensions.swift in Sources */,
+				10478F87269B328700F6C2F4 /* PhotoViewModel.swift in Sources */,
+				10478F85269B321C00F6C2F4 /* ImageCell.swift in Sources */,
+				10478F9D269D0D3100F6C2F4 /* ImageSaver.swift in Sources */,
 				10478F6A269B23D400F6C2F4 /* ElectroluxApp.swift in Sources */,
+				10478F9B269CD54A00F6C2F4 /* ProgressViewIndicator.swift in Sources */,
+				10478F8B269B3EDB00F6C2F4 /* FlickrHelper.swift in Sources */,
+				10478F83269B30AA00F6C2F4 /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +430,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		10478F7D269B304400F6C2F4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
+		10478F8E269B66AD00F6C2F4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		10478F7E269B304400F6C2F4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10478F7D269B304400F6C2F4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		10478F8F269B66AD00F6C2F4 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10478F8E269B66AD00F6C2F4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		10478F91269B66AD00F6C2F4 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10478F8E269B66AD00F6C2F4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		10478F93269B66AD00F6C2F4 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10478F8E269B66AD00F6C2F4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 10478F5E269B23D400F6C2F4 /* Project object */;
 }

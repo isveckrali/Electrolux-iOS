@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct ElectroluxApp: App {
+    
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(PhotoViewModel.shared)
         }
     }
 }

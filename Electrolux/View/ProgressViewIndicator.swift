@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProgressViewIndicator: View {
+    
+    //MARK: - BODY
     var body: some View {
         ProgressView()
             .progressViewStyle(CircularProgressViewStyle(tint: .blue))
