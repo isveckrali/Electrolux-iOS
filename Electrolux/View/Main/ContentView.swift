@@ -19,9 +19,12 @@ struct ContentView: View {
         GridItem(.flexible())
     ]
     
+    @ObservedObject private var networkMonitor = NetworkMonitor()
+    
     @State private var searchText = ""
     @State private var selectedPhoto: Photo?
     @State private var alertIsPreseneted = false
+    
     
     //MARK: BODY
     
@@ -96,6 +99,10 @@ extension ContentView {
     }
     
     private func downloadSelectedImage() {
+        guard networkMonitor.isConnected else {
+            return
+        }
+        
         if let url = selectedPhoto?.urlM {
             alertIsPreseneted = false
             viewModel.downloadImage(urlPath: url)
@@ -105,7 +112,11 @@ extension ContentView {
     }
     
     private func searchByTag(searchText: String) {
+        guard networkMonitor.isConnected else {
+            return
+        }
         viewModel.isNewSearching = true
+        viewModel.pageSize = 1
         viewModel.fetchImages(tags: searchText)
     }
     

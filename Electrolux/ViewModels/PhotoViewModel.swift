@@ -23,11 +23,13 @@ class PhotoViewModel: ObservableObject {
     
     static let shared =  PhotoViewModel()
     
-    @ObservedObject private var networkMonitor: NetworkMonitor = NetworkMonitor()
+    @ObservedObject private var networkMonitor = NetworkMonitor()
     
     //MARK: - FUNCTIONS
     init() {
-        fetchImages()
+        if networkMonitor.isConnected {
+            fetchImages()
+        }
     }
     
     func fetchImages(tags: String = "Electrolux", page: Int = 1) {
@@ -52,7 +54,7 @@ class PhotoViewModel: ObservableObject {
                 }
                 //  print($0)
             }).disposed(by: disposeBag)
-            
+        
     }
     
     func downloadImage(urlPath: String) {
