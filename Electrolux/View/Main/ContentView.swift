@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
     //MARK: - PROPERTIES
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
@@ -31,12 +30,7 @@ struct ContentView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    if let url = selectedPhoto?.urlM {
-                        alertIsPreseneted = false
-                        viewModel.downloadImage(urlPath: url)
-                    } else {
-                        alertIsPreseneted = true
-                    }
+                    downloadSelectedImage()
                 }, label: {
                     Label("", systemImage: "square.and.arrow.down")
                 })
@@ -45,13 +39,16 @@ struct ContentView: View {
             } //HStack
             SearchBar(text: $searchText)
                 .onChange(of: searchText, perform: { value in
-                    viewModel.fetchImages(tags: value)
+                    searchByTag(searchText: value)
                 })
             ScrollView {
+                //Displaying contents...
                 LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
-                    ForEach(viewModel.images) { item in
+                    ForEach(viewModel.images, id: \.id) { item in
                         VStack {
-                            ImageCell(photo: item)
+                            if item.urlM != nil {
+                                ImageCell(photo: item)
+                            }
                         }
                         .padding()
                         .background(selectedPhoto == item ? Color.gray.opacity(0.5)
@@ -59,13 +56,11 @@ struct ContentView: View {
                                         Color(UIColor.systemGroupedBackground)
                                         .clipShape(RoundedRectangle(cornerRadius: 10)))
                         .onTapGesture {
-                            if selectedPhoto == item {
-                                self.selectedPhoto = nil
-                            } else {
-                                self.selectedPhoto = item
-                            }
+                            highlightSelectedImage(item: item)
                         }
-                        
+                        .onAppear(perform: {
+                            loadListItem(item: item)
+                        })
                     } //ForEach
                 } //LazyVGrid
             }//ScrollView
@@ -84,6 +79,42 @@ struct ContentView: View {
             ProgressViewIndicator()
         }
         
+    }
+}
+
+extension ContentView {
+    
+    //MARK: - FUNCTIONS
+    private func loadListItem(item: Photo) {
+        if viewModel.images.last == item && !viewModel.isLoading && viewModel.pageSize >= viewModel.currentPageSize + 1  {
+            viewModel.isNewSearching = false
+            
+            print("DEBUG: Increased page size \(viewModel.currentPageSize + 1) ")
+            
+            viewModel.fetchImages(tags: searchText, page: viewModel.currentPageSize + 1)
+        }
+    }
+    
+    private func downloadSelectedImage() {
+        if let url = selectedPhoto?.urlM {
+            alertIsPreseneted = false
+            viewModel.downloadImage(urlPath: url)
+        } else {
+            alertIsPreseneted = true
+        }
+    }
+    
+    private func searchByTag(searchText: String) {
+        viewModel.isNewSearching = true
+        viewModel.fetchImages(tags: searchText)
+    }
+    
+    private func highlightSelectedImage(item: Photo) {
+        if selectedPhoto == item {
+            self.selectedPhoto = nil
+        } else {
+            self.selectedPhoto = item
+        }
     }
 }
 

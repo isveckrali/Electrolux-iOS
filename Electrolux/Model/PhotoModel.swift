@@ -23,7 +23,8 @@ struct Photos: Decodable {
 }
 
 struct Photo: Decodable, Identifiable, Equatable {
-    var id: String?
+    var id = UUID() //It added because while getting items, some items have the same id number(It estimated during some errors). It is my own solution
+    var picId: String?
     var owner: String?
     var secret: String?
     var server: String?
@@ -37,6 +38,7 @@ struct Photo: Decodable, Identifiable, Equatable {
     var widthM: Int?
     
     private enum CodingKeys: String, CodingKey {
-        case id, owner, secret, server, farm, title, isPublic = "ispublic", isFriend = "isfriend", isFamily = "isfamily", urlM = "url_m", heightM = "height_m", widthM = "width_m"
+        //do readable code with swift syntax
+        case picId = "id", owner, secret, server, farm, title, isPublic = "ispublic", isFriend = "isfriend", isFamily = "isfamily", urlM = "url_m", heightM = "height_m", widthM = "width_m"
     }
 }

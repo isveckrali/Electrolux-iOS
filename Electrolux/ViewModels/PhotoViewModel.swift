@@ -14,6 +14,9 @@ class PhotoViewModel: ObservableObject {
     //MARK: - PROPERTIES
     @Published var images = [Photo]()
     @Published var isLoading: Bool = true
+    @Published var isNewSearching: Bool = true
+    @Published var pageSize: Int = 1
+    @Published var currentPageSize: Int = 1
     
     private let disposeBag = DisposeBag()
     private let imageSaver = ImageSaver()
@@ -27,23 +30,29 @@ class PhotoViewModel: ObservableObject {
         fetchImages()
     }
     
-    func fetchImages(tags: String = "Electrolux") {
-        
+    func fetchImages(tags: String = "Electrolux", page: Int = 1) {
         let tag = tags.isEmpty ? "Electrolux" : tags
-        let resource = Resource<PhotoModel>(url: URL(string: FlickrHelper.URLForSearchString(searchString: tag))!)
+        let resource = Resource<PhotoModel>(url: URL(string: FlickrHelper.URLForSearchString(searchString: tag, page: page))!)
         
         isLoading = true
         URLRequest.load(resource: resource)
             .subscribe(onNext: { data in
                 DispatchQueue.main.async {
-                    self.isLoading = false
                     if let photos = data.photos {
-                        self.images = photos.photo
+                        self.pageSize = photos.pages ?? 1
+                        self.currentPageSize = photos.page ?? page
+                        if self.isNewSearching {
+                            self.images = photos.photo
+                        } else {
+                            self.images.append(contentsOf: photos.photo)
+                        }
                     }
+                    self.isLoading = false
                     print("DEBUG: Images  \(self.images)")
                 }
                 //  print($0)
             }).disposed(by: disposeBag)
+            
     }
     
     func downloadImage(urlPath: String) {
@@ -62,7 +71,7 @@ class PhotoViewModel: ObservableObject {
                 let imageData = data.data
                 self!.imageSaver.writeToPhotoAlbum(image: UIImage(data: imageData)!)
                 
-                print("DEBUG: Images  \(imageData)")
+                print("DEBUG: ImageData  \(imageData)")
                 
             }).disposed(by: disposeBag)
     }
