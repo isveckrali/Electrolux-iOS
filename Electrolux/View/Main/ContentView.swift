@@ -32,6 +32,7 @@ struct ContentView: View {
         VStack {
             HStack {
                 Spacer()
+                // Downlading Button
                 Button(action: {
                     downloadSelectedImage()
                 }, label: {
@@ -39,13 +40,13 @@ struct ContentView: View {
                 })
                 .frame(alignment: .trailing)
                 .padding(.trailing, 32)
-            } //HStack
+            } //: HStack
             SearchBar(text: $searchText)
                 .onChange(of: searchText, perform: { value in
                     searchByTag(searchText: value)
                 })
             ScrollView {
-                //Displaying contents...
+                // Displaying contents...
                 LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
                     ForEach(viewModel.images, id: \.id) { item in
                         VStack {
@@ -64,9 +65,9 @@ struct ContentView: View {
                         .onAppear(perform: {
                             loadListItem(item: item)
                         })
-                    } //ForEach
-                } //LazyVGrid
-            }//ScrollView
+                    } //: ForEach
+                } //: LazyVGrid
+            }//: ScrollView
             .onChange(of: verticalSizeClass) { value in
                 self.gridLayout =  verticalSizeClass == .compact ?  [GridItem(.flexible()),
                                                                      GridItem(.flexible())] : [GridItem(.flexible()),
@@ -76,7 +77,7 @@ struct ContentView: View {
             .alert(isPresented: $alertIsPreseneted, content: {
                 Alert(title: Text("Warning"), message: Text("Please select a photo"), dismissButton: .default(Text("Got It")))
             })
-        } //VStack
+        } //: VStack
         
         if viewModel.isLoading {
             ProgressViewIndicator()
@@ -88,6 +89,7 @@ struct ContentView: View {
 extension ContentView {
     
     //MARK: - FUNCTIONS
+    /// During scrolling check last item and make a new request to load more data
     private func loadListItem(item: Photo) {
         if viewModel.images.last == item && !viewModel.isLoading && viewModel.pageSize >= viewModel.currentPageSize + 1  {
             viewModel.isNewSearching = false
@@ -98,6 +100,7 @@ extension ContentView {
         }
     }
     
+    // Start to download selected image
     private func downloadSelectedImage() {
         guard networkMonitor.isConnected else {
             return
@@ -111,6 +114,7 @@ extension ContentView {
         }
     }
     
+    // If user changes search text it works
     private func searchByTag(searchText: String) {
         guard networkMonitor.isConnected else {
             return
@@ -120,6 +124,7 @@ extension ContentView {
         viewModel.fetchImages(tags: searchText)
     }
     
+    //Assing photo to selected item to downlload
     private func highlightSelectedImage(item: Photo) {
         if selectedPhoto == item {
             self.selectedPhoto = nil
@@ -129,6 +134,7 @@ extension ContentView {
     }
 }
 
+//MARK: - PREVIEW
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

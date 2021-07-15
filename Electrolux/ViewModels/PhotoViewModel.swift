@@ -32,6 +32,7 @@ class PhotoViewModel: ObservableObject {
         }
     }
     
+    //Fetch images from server with properties
     func fetchImages(tags: String = "Electrolux", page: Int = 1) {
         let tag = tags.isEmpty ? "Electrolux" : tags
         let resource = Resource<PhotoModel>(url: URL(string: FlickrHelper.URLForSearchString(searchString: tag, page: page))!)
@@ -57,6 +58,8 @@ class PhotoViewModel: ObservableObject {
         
     }
     
+    
+    //Downloading image by url path
     func downloadImage(urlPath: String) {
         
         guard !urlPath.isEmpty else { return }

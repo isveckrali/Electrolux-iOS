@@ -10,6 +10,7 @@ import Foundation
 
 class FlickrHelper: NSObject {
     
+    //Generate url vy coming parameters
     class func URLForSearchString(searchString: String, page: Int) -> String {
         
         let apiKEY: String = "4e8549cecc409035f95db4e57f415259"

@@ -18,6 +18,7 @@ struct ImageCell: View {
     var body: some View {
         
         HStack(spacing: 12) {
+            // Image container
             KFImage(URL(string: photo.urlM!))
                 .resizable()
                 .scaledToFill()
@@ -26,7 +27,7 @@ struct ImageCell: View {
                 .cornerRadius(10)
                 .shadow(color: Color.primary.opacity(0.3), radius: 1)
             
-        } //HStack
+        } //: HStack
         .animation(.interactiveSpring())
         
     }

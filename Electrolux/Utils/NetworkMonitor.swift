@@ -21,6 +21,7 @@ class NetworkMonitor: ObservableObject {
         startMonitor()
     }
     
+    //Monitor internet connection if it changes
     private func startMonitor() {
         monitor.pathUpdateHandler = { [weak self] path in
             DispatchQueue.main.async {
